@@ -1,4 +1,4 @@
-package com.kushmiruk.chapter02;
+package com.kushmiruk.chapter02.xml;
 
 public class HelloWorldDecoupled {
     public static void main(String[] args) {

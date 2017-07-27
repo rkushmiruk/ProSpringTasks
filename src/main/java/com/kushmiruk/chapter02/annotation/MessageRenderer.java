@@ -1,10 +1,9 @@
-package com.kushmiruk.chapter02;
+package com.kushmiruk.chapter02.annotation;
 
-/**
- * Created by roman on 25.07.17.
- */
 public interface MessageRenderer {
     void render();
+
     void setMessageProvider(MessageProvider provider);
+
     MessageProvider getMessageProvider();
 }

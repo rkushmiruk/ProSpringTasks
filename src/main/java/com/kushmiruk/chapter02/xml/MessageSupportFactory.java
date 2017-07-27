@@ -1,4 +1,4 @@
-package com.kushmiruk.chapter02;
+package com.kushmiruk.chapter02.xml;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -10,16 +10,16 @@ public class MessageSupportFactory {
     private MessageRenderer renderer;
     private MessageProvider provider;
 
-    private MessageSupportFactory(){
+    private MessageSupportFactory() {
         props = new Properties();
-        try{
-            props.load(new FileInputStream("/Users/roman/Downloads/Spring/src/main/resources/msf.properties"));
+        try {
+            props.load(new FileInputStream("/Users/roman/Downloads/Spring/src/main/resources/chapter02/msf.properties"));
             String rendererClass = props.getProperty("renderer.class");
             String providerClass = props.getProperty("provider.class");
 
             renderer = (MessageRenderer) Class.forName(rendererClass).newInstance();
             provider = (MessageProvider) Class.forName(providerClass).newInstance();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -28,7 +28,7 @@ public class MessageSupportFactory {
         instance = new MessageSupportFactory();
     }
 
-    public static MessageSupportFactory getInstance(){
+    public static MessageSupportFactory getInstance() {
         return instance;
     }
 
