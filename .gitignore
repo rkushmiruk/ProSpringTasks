@@ -14,6 +14,3 @@ dist/
 nbdist/
 nb-configuration.xml
 
-/src/main/resources/log
-
-Tasks from pro spring 4 book by Chris Schaefer
