@@ -1,37 +1,39 @@
 package com.kushmiruk.chapter03.autowiring;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Target {
+    private static final Logger LOGGER = Logger.getLogger(Target.class);
     private Foo foo;
     private Foo foo2;
     private Bar bar;
 
-    public Target(){
+    public Target() {
 
     }
 
     public Target(Foo foo) {
-        System.out.println("Target foo set");
+        LOGGER.info("Target foo set");
     }
 
     public Target(Foo foo, Bar bar) {
-        System.out.println("Target foo,bar set");
+        LOGGER.info("Target foo,bar set");
     }
 
     public void setFoo(Foo foo) {
         this.foo = foo;
-        System.out.println("Property foo set");
+        LOGGER.info("Property foo set");
     }
 
     public void setFoo2(Foo foo2) {
         this.foo2 = foo2;
-        System.out.println("Property foo2 set");
+        LOGGER.info("Property foo2 set");
     }
 
     public void setBar(Bar bar) {
         this.bar = bar;
-        System.out.println("Property bar set");
+        LOGGER.info("Property bar set");
     }
 
     public static void main(String[] args) {
@@ -40,13 +42,13 @@ public class Target {
         context.refresh();
 
         Target t = null;
-        System.out.println("Using byName:\n");
+        LOGGER.info("Using byName:\n");
         t = (Target) context.getBean("targetByName");
 
-        System.out.println("Using byType:\n");
+        LOGGER.info("Using byType:\n");
         t = (Target) context.getBean("targetByType");
 
-        System.out.println("Using constructor:\n");
+        LOGGER.info("Using constructor:\n");
         t = (Target) context.getBean("targetByConstructor");
 
     }

@@ -1,8 +1,10 @@
 package com.kushmiruk.chapter03.beannaming;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class BeanNameAliasing {
+    private static final Logger LOGGER = Logger.getLogger(BeanNameAliasing.class);
     public static void main(String[] args) {
         GenericXmlApplicationContext context = new GenericXmlApplicationContext();
         context.load("chapter03/META-INF/spring/beannaming/app-context-xml.xml");
@@ -15,10 +17,10 @@ public class BeanNameAliasing {
         String s5 = (String) context.getBean("name5");
         String s6 = (String) context.getBean("name6");
 
-        System.out.println(s1==s2);
-        System.out.println(s2==s3);
-        System.out.println(s3==s4);
-        System.out.println(s4==s5);
-        System.out.println(s5==s6);
+        LOGGER.info(s1==s2);
+        LOGGER.info(s2==s3);
+        LOGGER.info(s3==s4);
+        LOGGER.info(s4==s5);
+        LOGGER.info(s5==s6);
     }
 }

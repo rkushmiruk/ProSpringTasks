@@ -1,8 +1,10 @@
 package com.kushmiruk.chapter03.inheritancebean;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SimpleBean {
+    private static final Logger LOGGER = Logger.getLogger(SimpleBean.class);
     private String name;
     private int age;
 
@@ -14,8 +16,8 @@ public class SimpleBean {
         SimpleBean parent = (SimpleBean) context.getBean("inheritParent");
         SimpleBean child = (SimpleBean) context.getBean("inheritChild");
 
-        System.out.println("Parent:\n" + parent);
-        System.out.println("Child:\n" + child);
+        LOGGER.info("Parent:\n" + parent);
+        LOGGER.info("Child:\n" + child);
     }
 
     public void setName(String name) {
