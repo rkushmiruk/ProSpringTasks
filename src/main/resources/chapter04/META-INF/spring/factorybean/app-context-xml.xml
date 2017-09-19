@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="shaDigest" class="com.kushmiruk.chapter04.factorybean.MessageDigestFactoryBean">
+        <property name="algorithmName" value="SHA1"/>
+    </bean>
+
+    <bean id="defaultDigest" class="com.kushmiruk.chapter04.factorybean.MessageDigestFactoryBean"/>
+
+    <bean id="digester" class="com.kushmiruk.chapter04.factorybean.MessageDigester">
+        <property name="messageDigest1" ref="shaDigest"/>
+        <property name="messageDigest2" ref="defaultDigest"/>
+    </bean>
+
+
+</beans>
