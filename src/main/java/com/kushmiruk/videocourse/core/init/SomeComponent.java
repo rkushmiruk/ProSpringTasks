@@ -1,4 +1,4 @@
-package com.kushmiruk.videocourse.init;
+package com.kushmiruk.videocourse.core.init;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;

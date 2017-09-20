@@ -9,7 +9,7 @@ public class GroovyBeansFromJava {
 
     public static void main(String[] args) {
         ApplicationContext context =
-                new GenericGroovyApplicationContext("chapter04/META-INF/spring/groovyconfig/beans");
+                new GenericGroovyApplicationContext("classpath:chapter04/META-INF/spring/groovyconfig/beans.groovy");
 
         Contact contact = (Contact) context.getBean("contact");
         LOGGER.info(contact);
