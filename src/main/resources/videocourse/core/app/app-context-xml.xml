@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="logger.xml"/>
+
+    <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:videocourse/core/app/client.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="systemPropertiesMode" value="2"/>
+    </bean>
+
+    <bean id="client" class="com.kushmiruk.videocourse.core.app.Client">
+        <constructor-arg type="java.lang.Integer" value="1" />
+        <constructor-arg type="java.lang.String" value="${name}"/>
+        <constructor-arg type="java.lang.String" value="${greeting}"/>
+    </bean>
+
+
+    <bean id="app" class="com.kushmiruk.videocourse.core.app.App">
+        <constructor-arg ref="client"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO" value-ref="consoleEventLogger"/>
+                <entry key="ERROR" value-ref="combinedEventLogger"/>
+                <entry key="DEFAULT" value-ref="cacheFileEventLogger"/>
+            </map>
+        </constructor-arg>
+        <property name="event" ref="event"/>
+        <lookup-method name="getEvent" bean="event"/>
+    </bean>
+
+    <bean id="event" class="com.kushmiruk.videocourse.core.app.Event" scope="prototype">
+        <constructor-arg type="java.lang.String" value="LogEvent for user 1"/>
+        <constructor-arg>
+            <bean class="java.util.Date" scope="prototype"/>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+        </constructor-arg>
+    </bean>
+
+
+</beans>

@@ -1,4 +1,4 @@
-package com.kushmiruk.videocourse.core.firstapp;
+package com.kushmiruk.videocourse.core.app;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.kushmiruk.videocourse.core.firstapp;
+package com.kushmiruk.videocourse.core.app;
 
 public interface EventLogger {
 
