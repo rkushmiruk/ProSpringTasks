@@ -10,6 +10,7 @@ public class ProfileXmlConfigExample {
 
     public static void main(String[] args) {
         GenericXmlApplicationContext context = new GenericXmlApplicationContext();
+//        context.getEnvironment().setActiveProfiles("kindergarten");
         context.load("chapter04/META-INF/spring/springprofile/*-context-xml.xml");
         context.refresh();
 
