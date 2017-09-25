@@ -5,6 +5,7 @@ Tasks from pro spring 4 book by Chris Schaefer
 **Chapter03** - Start IoC and DI in Spring <br />
 **Chapter04** - Spring Configuration in Detail <br />
 **Chapter05** - Spring AOP <br />
+**Chapter06** - Spring JDBC <br />
 
 
 
