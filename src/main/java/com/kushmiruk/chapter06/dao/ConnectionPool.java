@@ -18,6 +18,7 @@ public class ConnectionPool {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return oracleDS;
     }
 

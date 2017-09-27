@@ -9,8 +9,8 @@
 
 
     <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="chapter06/schema.sql"/>
-        <jdbc:script location="chapter06/test-date.sql"/>
+        <jdbc:script location="chapter06/h2db/schema.sql"/>
+        <jdbc:script location="chapter06/h2db/test-date.sql"/>
     </jdbc:embedded-database>
 
     <bean id="contactDao" class="com.kushmiruk.chapter06.dao.impl.JdbcContactDao">

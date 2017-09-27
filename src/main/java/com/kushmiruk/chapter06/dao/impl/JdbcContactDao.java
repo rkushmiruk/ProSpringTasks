@@ -1,6 +1,5 @@
 package com.kushmiruk.chapter06.dao.impl;
 
-import com.kushmiruk.chapter06.dao.ConnectionPool;
 import com.kushmiruk.chapter06.dao.ContactDao;
 import com.kushmiruk.chapter06.domain.Contact;
 import org.springframework.beans.factory.BeanCreationException;
@@ -20,7 +19,7 @@ public class JdbcContactDao implements ContactDao, InitializingBean {
     @Override
     public List<Contact> findAll() {
         List<Contact> result = new ArrayList<>();
-        try (Connection connection = ConnectionPool.getConnection();
+        try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM contact");
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {

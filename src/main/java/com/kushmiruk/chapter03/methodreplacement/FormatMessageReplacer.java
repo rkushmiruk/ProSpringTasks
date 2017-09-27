@@ -10,7 +10,7 @@ public class FormatMessageReplacer implements MethodReplacer {
         if (isFormatMessageMethod(method)) {
             String msg = (String) objects[0];
 
-            return "<h2>" + msg + "</h2>";
+            return "<h2db>" + msg + "</h2db>";
         } else {
             throw new IllegalArgumentException("Unable to replaiment method " + method.getName());
         }
