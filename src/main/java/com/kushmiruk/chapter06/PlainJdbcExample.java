@@ -2,11 +2,14 @@ package com.kushmiruk.chapter06;
 
 import com.kushmiruk.chapter06.dao.ContactDao;
 import com.kushmiruk.chapter06.domain.Contact;
+import org.apache.log4j.Logger;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.util.List;
 
 public class PlainJdbcExample {
+    private static final Logger LOGGER = Logger.getLogger(PlainJdbcExample.class);
+
     private static ContactDao contactDao;
 
     public static void main(String[] args) {
@@ -18,15 +21,15 @@ public class PlainJdbcExample {
         List<Contact> contactList = contactDao.findAll();
 
         for (Contact contact : contactList) {
-            System.out.println(contact);
+            LOGGER.info(contact);
         }
 
-        System.out.println(contactDao.findFirstNameById(2L));
-        System.out.println(contactDao.findLastNameById(2L));
-        System.out.println(contactDao.findAll());
+        LOGGER.info(contactDao.findFirstNameById(2L));
+        LOGGER.info(contactDao.findLastNameById(2L));
+        LOGGER.info(contactDao.findAll());
 
-        for(Contact contact : contactDao.findAllWithDetail()){
-            System.out.println(contact);
+        for (Contact contact : contactDao.findAllWithDetail()) {
+            LOGGER.info(contact);
         }
 
         Contact contact = new Contact();
@@ -35,6 +38,6 @@ public class PlainJdbcExample {
         contact.setLastName("Lunchenko");
         contactDao.update(contact);
 
-        System.out.println(contactDao.findAll());
+        LOGGER.info(contactDao.findAll());
     }
 }

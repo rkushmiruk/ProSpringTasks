@@ -54,6 +54,13 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!--Spring orm-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <!--Log4j-->
         <dependency>
             <groupId>log4j</groupId>
@@ -89,10 +96,17 @@
             <version>2.1</version>
         </dependency>
 
+        <!--Embedded database-->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
            <version>1.4.195</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.11.Final</version>
         </dependency>
 
     </dependencies>
