@@ -18,7 +18,16 @@ public class PlainJdbcExample {
         List<Contact> contactList = contactDao.findAll();
 
         for (Contact contact : contactList) {
-            System.out.println(contactList);
+            System.out.println(contact);
         }
+
+        System.out.println(contactDao.findFirstNameById(2L));
+        System.out.println(contactDao.findLastNameById(2L));
+        System.out.println(contactDao.findAll());
+
+        for(Contact contact : contactDao.findAllWithDetail()){
+            System.out.println(contact);
+        }
+
     }
 }
