@@ -6,11 +6,14 @@ import com.kushmiruk.chapter06.domain.ContactTelDetail;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.object.SqlUpdate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -106,7 +109,21 @@ public class JdbcContactDao implements ContactDao, InitializingBean {
 
     @Override
     public void update(Contact contact) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("first_name", contact.getFirstName());
+        paramMap.put("last_name", contact.getLastName());
+        paramMap.put("birth_date", contact.getBirthDate());
+        paramMap.put("id", contact.getId());
 
+        String sql = "update contact set first_name=:first_name," +
+                "last_name=:last_name,birth_date=:birth_date where id = :id";
+        SqlUpdate sqlUpdate = new SqlUpdate(dataSource, sql);
+        sqlUpdate.declareParameter(new SqlParameter("first_name", Types.VARCHAR));
+        sqlUpdate.declareParameter(new SqlParameter("last_name", Types.VARCHAR));
+        sqlUpdate.declareParameter(new SqlParameter("birth_date", Types.DATE));
+        sqlUpdate.declareParameter(new SqlParameter("id", Types.INTEGER));
+
+        sqlUpdate.updateByNamedParam(paramMap);
     }
 
     @Override

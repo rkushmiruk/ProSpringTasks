@@ -29,5 +29,12 @@ public class PlainJdbcExample {
             System.out.println(contact);
         }
 
+        Contact contact = new Contact();
+        contact.setId(2L);
+        contact.setFirstName("Dima");
+        contact.setLastName("Lunchenko");
+        contactDao.update(contact);
+
+        System.out.println(contactDao.findAll());
     }
 }
