@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = "injectSimple" class="com.kushmiruk.prospring.chapter03.injectsimplevalue.xml.InjectSimple"
+          p:name="Roman" p:age="22" p:height="1.752"
+          p:programmer="true" p:ageInSeconds="100980000"/>
+
+    <bean id="injectSimpleConfig" class="com.kushmiruk.prospring.chapter03.injectsimplevalue.xml.InjectSimpleConfig" />
+
+    <bean id="injectSimpleSpel" class="com.kushmiruk.prospring.chapter03.injectsimplevalue.xml.InjectSimpleSpel"
+          p:name="#{injectSimpleConfig.name}"
+          p:age="#{injectSimpleConfig.age+12}"
+          p:height="#{injectSimpleConfig.height}"
+          p:programmer="#{injectSimpleConfig.programmer}"
+          p:ageInSeconds="#{injectSimpleConfig.ageInSeconds}"/>
+</beans>
