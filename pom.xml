@@ -100,16 +100,23 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-           <version>1.4.195</version>
+            <version>1.4.195</version>
         </dependency>
 
+        <!--Hibernate entity manager-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>4.3.11.Final</version>
         </dependency>
 
-    </dependencies>
+        <!--Hibernate jpa entity manager-->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
 
+    </dependencies>
 
 </project>
