@@ -13,8 +13,8 @@
     <context:component-scan base-package="com.kushmiruk.prospring.chapter06"/>
 
     <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="../..//h2db/schema.sql"/>
-        <jdbc:script location="../..//h2db/test-date.sql"/>
+        <jdbc:script location="prospring/chapter06/h2db/schema.sql"/>
+        <jdbc:script location="prospring/chapter06/h2db/test-date.sql"/>
     </jdbc:embedded-database>
 
 

@@ -1,4 +1,4 @@
-package com.kushmiruk.prospring.chapter07.domain;
+package com.kushmiruk.prospring.chapter07.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +8,12 @@ import java.util.Set;
 
 @Entity
 @Table(name = "contact")
+@NamedQueries({@NamedQuery(name = "Contact.findAllWithDetail",
+        query = "SELECT distinct  c from Contact c left join  fetch c.contactTelDetails t " +
+                "left join fetch c.hobbies h"),
+        @NamedQuery(name = "Contact.findById",
+                query = "SELECT distinct  c from Contact c left join  fetch c.contactTelDetails t " +
+                        "left join fetch c.hobbies h where c.id = :id")})
 public class Contact implements Serializable {
     private Long id;
     private int version;
@@ -85,6 +91,11 @@ public class Contact implements Serializable {
 
     public void setHobbies(Set<Hobby> hobbies) {
         this.hobbies = hobbies;
+    }
+
+    public void addContactTelDetail(ContactTelDetail contactTelDetail){
+        contactTelDetail.setContact(this);
+        getContactTelDetails().add(contactTelDetail);
     }
 
     @Override

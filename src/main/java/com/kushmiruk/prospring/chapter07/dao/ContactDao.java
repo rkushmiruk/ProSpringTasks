@@ -1,6 +1,6 @@
 package com.kushmiruk.prospring.chapter07.dao;
 
-import com.kushmiruk.prospring.chapter07.domain.Contact;
+import com.kushmiruk.prospring.chapter07.entity.Contact;
 
 import java.util.List;
 

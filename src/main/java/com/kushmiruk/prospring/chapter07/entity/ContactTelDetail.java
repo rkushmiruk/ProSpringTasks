@@ -1,4 +1,4 @@
-package com.kushmiruk.prospring.chapter07.domain;
+package com.kushmiruk.prospring.chapter07.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +13,6 @@ public class ContactTelDetail implements Serializable {
     private Contact contact;
 
     public ContactTelDetail() {
-
     }
 
     public ContactTelDetail(String telType, String telNumber) {

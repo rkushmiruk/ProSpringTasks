@@ -1,4 +1,4 @@
-package com.kushmiruk.prospring.chapter07.domain;
+package com.kushmiruk.prospring.chapter07.entity;
 
 import javax.persistence.*;
 import java.util.HashSet;

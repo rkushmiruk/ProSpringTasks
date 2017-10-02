@@ -1,7 +1,7 @@
 package com.kushmiruk.prospring.chapter07.dao.impl;
 
 import com.kushmiruk.prospring.chapter07.dao.ContactDao;
-import com.kushmiruk.prospring.chapter07.domain.Contact;
+import com.kushmiruk.prospring.chapter07.entity.Contact;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -24,23 +24,30 @@ public class ContactDaoImpl implements ContactDao {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Contact> findAllWithDetail() {
-        return null;
+        return sessionFactory.getCurrentSession().getNamedQuery("Contact.findAllWithDetail").list();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Contact findById(Long id) {
-        return null;
+        return (Contact) sessionFactory.getCurrentSession()
+                .getNamedQuery("Contact.findById")
+                .setParameter("id", id).uniqueResult();
     }
 
     @Override
     public Contact save(Contact contact) {
-        return null;
+        sessionFactory.getCurrentSession().saveOrUpdate(contact);
+        LOGGER.info("Contact saved with id: " + contact.getId());
+        return contact;
     }
 
     @Override
     public void delete(Contact contact) {
-
+        sessionFactory.getCurrentSession().delete(contact);
+        LOGGER.info("Contact delete with id: " + contact.getId());
     }
 
     public SessionFactory getSessionFactory() {
