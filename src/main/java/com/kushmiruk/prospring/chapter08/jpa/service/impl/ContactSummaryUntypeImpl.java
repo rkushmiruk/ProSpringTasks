@@ -1,4 +1,4 @@
-package com.kushmiruk.prospring.chapter08.dao.impl;
+package com.kushmiruk.prospring.chapter08.jpa.service.impl;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;

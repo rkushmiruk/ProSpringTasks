@@ -18,7 +18,7 @@
     </jdbc:embedded-database>
 
 
-    <!--<bean id="contactDao" class="com.kushmiruk.chapter06.dao.impl.JdbcContactDao">-->
+    <!--<bean id="contactDao" class="com.kushmiruk.chapter06.service.impl.JdbcContactDao">-->
     <!--<property name="dataSource" ref="dataSource"/>-->
     <!--</bean>-->
 </beans>

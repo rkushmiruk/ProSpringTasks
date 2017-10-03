@@ -1,4 +1,4 @@
-package com.kushmiruk.prospring.chapter08.dao;
+package com.kushmiruk.prospring.chapter08.jpa.service;
 
 import com.kushmiruk.prospring.chapter08.entity.ContactSummary;
 

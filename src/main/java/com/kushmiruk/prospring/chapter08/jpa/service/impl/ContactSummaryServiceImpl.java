@@ -1,6 +1,6 @@
-package com.kushmiruk.prospring.chapter08.dao.impl;
+package com.kushmiruk.prospring.chapter08.jpa.service.impl;
 
-import com.kushmiruk.prospring.chapter08.dao.ContactSummaryService;
+import com.kushmiruk.prospring.chapter08.jpa.service.ContactSummaryService;
 import com.kushmiruk.prospring.chapter08.entity.ContactSummary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +12,6 @@ import java.util.List;
 @Service("contactSummaryService")
 @Transactional
 public class ContactSummaryServiceImpl implements ContactSummaryService {
-
     @PersistenceContext
     private EntityManager entityManager;
 

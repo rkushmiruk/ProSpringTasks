@@ -1,4 +1,4 @@
-package com.kushmiruk.prospring.chapter08.dao;
+package com.kushmiruk.prospring.chapter08.jpa.service;
 
 import com.kushmiruk.prospring.chapter08.entity.Contact;
 
@@ -14,4 +14,8 @@ public interface ContactService {
     Contact save(Contact contact);
 
     void delete(Contact contact);
+
+    List<Contact> findAllByNativeQuery();
+
+    List<Contact> findByCriteriaQuery(String firstName, String lastName);
 }
