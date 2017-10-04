@@ -13,7 +13,7 @@
     </bean>
 
     <util:list id="basename">
-        <value>chapter04/META-INF/spring/i18n/labels</value>
+        <value>prospring/chapter04/META-INF/spring/i18n/labels</value>
     </util:list>
 
 </beans>

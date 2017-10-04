@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository("contactDao")
+
 public class JdbcContactDao implements ContactDao, InitializingBean {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
