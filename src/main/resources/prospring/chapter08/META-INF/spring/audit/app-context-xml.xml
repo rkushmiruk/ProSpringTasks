@@ -5,7 +5,8 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
@@ -14,9 +15,11 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd
        http://www.springframework.org/schema/jdbc
-       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd ">
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <context:component-scan base-package="com.kushmiruk.prospring.chapter08.entity  com.kushmiruk.prospring.chapter08.jpa"/>
+    <context:component-scan base-package="com.kushmiruk.prospring.chapter08"/>
 
     <jdbc:embedded-database id="dataSource" type="H2">
         <jdbc:script location="prospring/chapter08/schema.sql"/>
@@ -47,5 +50,12 @@
         <prop key="hibernate.show_sql">true</prop>
     </util:properties>
 
+    <jpa:repositories base-package="com.kushmiruk.prospring.chapter08"
+                      entity-manager-factory-ref="emf"
+                      transaction-manager-ref="transactionManager"/>
+
+    <jpa:auditing auditor-aware-ref="auditorAwareBean"/>
+
+    <bean id="auditorAwareBean" class="com.kushmiruk.prospring.chapter08.audit.AuditorAwareBean"/>
 
 </beans>
